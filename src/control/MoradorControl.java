@@ -32,8 +32,6 @@ public class MoradorControl {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void inserirMorador(Morador morador) {
 		moradorDao.save(morador);
-		System.out.println("teste");
-		System.out.println("teste github");
 	}
 	
 	@PUT
