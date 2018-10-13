@@ -33,6 +33,7 @@ public class MoradorControl {
 	public void inserirMorador(Morador morador) {
 		moradorDao.save(morador);
 		System.out.println("teste");
+		System.out.println("teste github");
 	}
 	
 	@PUT
