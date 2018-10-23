@@ -28,8 +28,29 @@ public class Morador implements EntidadeBase{
 	@Column
 	private String cpf;
 	
+	@Column(name="tel_residencial")
+	private String telefoneResidencial;
+	
+	@Column(name="tel_comercial")
+	private String telefoneComercial;
+	
 	@Column
-	private int numApart;
+	private String celular;
+	
+	@Column
+	private String senha;
+	
+	@Column(name="tipo_documento")
+	private String tipoDocumento;
+	
+	@Column(name="tipo_morador")
+	private String tipoMorador;
+	
+	@Column
+	private String email;
+	
+	@Column(name="placa_veiculo")
+	private String placaVeiculo;
 	
 	public long getId() {
 		return id;
@@ -49,11 +70,53 @@ public class Morador implements EntidadeBase{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public int getNumApart() {
-		return numApart;
+	public String getTelefoneResidencial() {
+		return telefoneResidencial;
 	}
-	public void setNumApart(int numApart) {
-		this.numApart = numApart;
+	public void setTelefoneResidencial(String telefoneResidencial) {
+		this.telefoneResidencial = telefoneResidencial;
+	}
+	public String getTelefoneComercial() {
+		return telefoneComercial;
+	}
+	public void setTelefoneComercial(String telefoneComercial) {
+		this.telefoneComercial = telefoneComercial;
+	}
+	public String getCelular() {
+		return celular;
+	}
+	public void setCelular(String celular) {
+		this.celular = celular;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getTipoDocumento() {
+		return tipoDocumento;
+	}
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+	public String getTipoMorador() {
+		return tipoMorador;
+	}
+	public void setTipoMorador(String tipoMorador) {
+		this.tipoMorador = tipoMorador;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPlacaVeiculo() {
+		return placaVeiculo;
+	}
+	public void setPlacaVeiculo(String placaVeiculo) {
+		this.placaVeiculo = placaVeiculo;
 	}
 	
 }
