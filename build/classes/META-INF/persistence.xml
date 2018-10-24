@@ -9,6 +9,9 @@
 
 		<!-- Todas as classes de entidades precisam ser listadas aqui -->
 		<class>model.Morador</class>
+		<class>model.Apartamento</class>
+		<class>model.Porteiro</class>
+		<class>model.Condominio</class>
 
 		<properties>
 			<!-- CONFIGURAÇÕES DE CONEXÃO COM O BANCO DE DADOS -->
