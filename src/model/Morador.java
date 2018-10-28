@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import DAO.EntidadeBase;
 
 @Entity
-@Inheritance (strategy=InheritanceType.JOINED)
 @Table(name="morador")
 @XmlRootElement
 public class Morador implements EntidadeBase{
@@ -28,29 +27,29 @@ public class Morador implements EntidadeBase{
 	@Column
 	private String cpf;
 	
-	@Column(name="tel_residencial")
+	@Column
+	private String email;
+	
+	@Column
 	private String telefoneResidencial;
 	
-	@Column(name="tel_comercial")
+	@Column
 	private String telefoneComercial;
 	
 	@Column
 	private String celular;
+		
+	@Column
+	private String tipoDocumento;
+	
+	@Column
+	private String tipoMorador;
+
+	@Column
+	private String placaVeiculo;
 	
 	@Column
 	private String senha;
-	
-	@Column(name="tipo_documento")
-	private String tipoDocumento;
-	
-	@Column(name="tipo_morador")
-	private String tipoMorador;
-	
-	@Column
-	private String email;
-	
-	@Column(name="placa_veiculo")
-	private String placaVeiculo;
 	
 	public long getId() {
 		return id;

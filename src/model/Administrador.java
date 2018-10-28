@@ -5,36 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import DAO.EntidadeBase;
 
 @Entity
-@Table(name="porteiro")
+@Inheritance (strategy=InheritanceType.JOINED)
+@Table(name="adm")
 @XmlRootElement
-public class Porteiro implements EntidadeBase{
+public class Administrador implements EntidadeBase{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column
-	private String nome;
-	
-	@Column
-	private String cpf;
-	
-	@Column
-	private String telefone;
-	
-	@Column
-	private String celular;
-	
-	@Column
 	private String email;
 	
-	@Column
+	@Column 
 	private String senha;
 
 	public long getId() {
@@ -43,38 +34,6 @@ public class Porteiro implements EntidadeBase{
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public String getCelular() {
-		return celular;
-	}
-
-	public void setCelular(String celular) {
-		this.celular = celular;
 	}
 
 	public String getEmail() {
@@ -92,5 +51,4 @@ public class Porteiro implements EntidadeBase{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
 }

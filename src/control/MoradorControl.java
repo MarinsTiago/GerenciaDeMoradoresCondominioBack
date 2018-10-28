@@ -20,7 +20,7 @@ public class MoradorControl {
 	private MoradorDao moradorDao = new MoradorDao();
 	
 	@GET
-	@Path("listarMorador")
+	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Morador> listarMorador(){
 		List<Morador> moradores = moradorDao.listaAll(Morador.class);
@@ -48,13 +48,10 @@ public class MoradorControl {
 		return (Morador) moradorDao.findById(Morador.class, id);
 	}
 		
-	
-	
 	@DELETE
 	@Path("excluir")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deletar(@QueryParam("id") long id) {
 		moradorDao.delete(Morador.class, id);
 	}
-	
 }

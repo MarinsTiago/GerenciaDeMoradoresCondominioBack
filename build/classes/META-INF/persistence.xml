@@ -12,6 +12,8 @@
 		<class>model.Apartamento</class>
 		<class>model.Porteiro</class>
 		<class>model.Condominio</class>
+		<class>model.Administrador</class>
+		<class>model.ProprietarioApartamento</class>
 
 		<properties>
 			<!-- CONFIGURAÇÕES DE CONEXÃO COM O BANCO DE DADOS -->
