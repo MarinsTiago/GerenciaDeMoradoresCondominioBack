@@ -16,18 +16,15 @@ import DAO.EntidadeBase;
 @Inheritance (strategy=InheritanceType.JOINED)
 @Table(name="adm")
 @XmlRootElement
-public class Administrador implements EntidadeBase{
+public class Administrador extends Usuario{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column
-	private String email;
+	private String nome;
 	
-	@Column 
-	private String senha;
-
 	public long getId() {
 		return id;
 	}
@@ -36,19 +33,12 @@ public class Administrador implements EntidadeBase{
 		this.id = id;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 }

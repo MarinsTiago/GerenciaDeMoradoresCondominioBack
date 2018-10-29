@@ -15,7 +15,7 @@ import DAO.EntidadeBase;
 @Entity
 @Table(name="morador")
 @XmlRootElement
-public class Morador implements EntidadeBase{
+public class Morador extends Usuario{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,9 +47,6 @@ public class Morador implements EntidadeBase{
 
 	@Column
 	private String placaVeiculo;
-	
-	@Column
-	private String senha;
 	
 	public long getId() {
 		return id;
@@ -87,12 +84,6 @@ public class Morador implements EntidadeBase{
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
 	public String getTipoDocumento() {
 		return tipoDocumento;
 	}
@@ -117,5 +108,4 @@ public class Morador implements EntidadeBase{
 	public void setPlacaVeiculo(String placaVeiculo) {
 		this.placaVeiculo = placaVeiculo;
 	}
-	
 }

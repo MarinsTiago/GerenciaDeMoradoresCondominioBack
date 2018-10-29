@@ -8,14 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import DAO.EntidadeBase;
+
 @Entity
-@Table(name="porteiro")
+@Table(name="proprietario")
 @XmlRootElement
-public class Porteiro extends Usuario{
-	
+public class Proprietario extends Usuario{
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column
+	private String email;
 	
 	@Column
 	private String nome;
@@ -28,9 +33,6 @@ public class Porteiro extends Usuario{
 	
 	@Column
 	private String celular;
-	
-	@Column
-	private String email;
 
 	public long getId() {
 		return id;
@@ -38,6 +40,14 @@ public class Porteiro extends Usuario{
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {
@@ -70,13 +80,5 @@ public class Porteiro extends Usuario{
 
 	public void setCelular(String celular) {
 		this.celular = celular;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	}	
 }

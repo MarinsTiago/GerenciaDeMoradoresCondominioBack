@@ -12,7 +12,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import DAO.ProprietarioDao;
-import model.ProprietarioApartamento;
+import model.Proprietario;
 
 @Path("proprietario")
 public class ProprietarioControl {
@@ -22,36 +22,36 @@ public class ProprietarioControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ProprietarioApartamento> listarProprietario(){
-		List<ProprietarioApartamento> proprietarios = dao.listaAll(ProprietarioApartamento.class);
+	public List<Proprietario> listarProprietario(){
+		List<Proprietario> proprietarios = dao.listaAll(Proprietario.class);
 		return proprietarios;
 	}
 	
 	@POST
 	@Path("inserir")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void inserirProprietario(ProprietarioApartamento proprietarioApartamento) {
+	public void inserirProprietario(Proprietario proprietarioApartamento) {
 		dao.save(proprietarioApartamento);
 	}
 	
 	@PUT
 	@Path("editar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void editarProprietario(ProprietarioApartamento proprietarioApartamento) {
+	public void editarProprietario(Proprietario proprietarioApartamento) {
 		dao.update(proprietarioApartamento);
 	}
 	
 	@GET
 	@Path("buscarId")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ProprietarioApartamento buscarPorId(@QueryParam("id") long id) {
-		return (ProprietarioApartamento) dao.findById(ProprietarioApartamento.class, id);
+	public Proprietario buscarPorId(@QueryParam("id") long id) {
+		return (Proprietario) dao.findById(Proprietario.class, id);
 	}
 	
 	@DELETE
 	@Path("excluir")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deletar(@QueryParam("id") long id) {
-		dao.delete(ProprietarioApartamento.class, id);
+		dao.delete(Proprietario.class, id);
 	}
 }
