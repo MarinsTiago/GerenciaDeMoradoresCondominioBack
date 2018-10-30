@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,15 +34,22 @@ public class Apartamento implements EntidadeBase{
 	private String bloco;
 	
 	/*@Column
-	@OneToOne(fetch = FetchType.EAGER, optional = false, mappedBy = "apartamento")
+	private boolean ocupado;
+	
+	@ManyToOne()
+	@JoinColumn(name="id_condominio", referencedColumnName="id", nullable=false)
+	private Condominio condominio;
+	
+	@Column
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "apartamento")
 	@JoinColumn(name="id_morador")
 	private Morador morador;
 
 	@Column
 	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name="id_proprietario_apartamento")
-	private ProprietarioApartamento proprietario;
-	*/
+	private Proprietario proprietario;*/
+
 	public long getId() {
 		return id;
 	}
@@ -65,11 +74,37 @@ public class Apartamento implements EntidadeBase{
 		this.bloco = bloco;
 	}
 
-	/*public Morador getMorador() {
+	/*public boolean isOcupado() {
+		return ocupado;
+	}
+
+	public void setOcupado(boolean ocupado) {
+		this.ocupado = ocupado;
+	}
+
+	public Condominio getCondominio() {
+		return condominio;
+	}
+
+	public void setCondominio(Condominio condominio) {
+		this.condominio = condominio;
+	}
+
+	public Morador getMorador() {
 		return morador;
 	}
 
 	public void setMorador(Morador morador) {
 		this.morador = morador;
-	}*/
+	}
+
+	public Proprietario getProprietario() {
+		return proprietario;
+	}
+
+	public void setProprietario(Proprietario proprietario) {
+		this.proprietario = proprietario;
+	}
+	*/
+
 }

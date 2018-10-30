@@ -2,9 +2,8 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,10 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name="porteiro")
 @XmlRootElement
 public class Porteiro extends Usuario{
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
 	
 	@Column
 	private String nome;
@@ -31,14 +26,11 @@ public class Porteiro extends Usuario{
 	
 	@Column
 	private String email;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+	//refazer getters and setters
+	
+	/*@ManyToOne()
+	@JoinColumn(name="id_condominio", referencedColumnName="id", nullable=false)
+	private Condominio condominio;*/
 
 	public String getNome() {
 		return nome;
