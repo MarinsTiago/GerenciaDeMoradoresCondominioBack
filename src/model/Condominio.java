@@ -27,10 +27,10 @@ public class Condominio implements EntidadeBase{
 	private String nome;
 	
 	/*@OneToMany(mappedBy="condominio", cascade=CascadeType.ALL)
-	private List<Apartamento> apartamentos;
+	private List<Apartamento> apartamentos;*/
 	
 	@OneToMany(mappedBy="condominio", cascade=CascadeType.ALL)
-	private List<Porteiro> porteiros;*/
+	private List<Porteiro> porteiros;
 
 	public long getId() {
 		return id;
@@ -54,7 +54,7 @@ public class Condominio implements EntidadeBase{
 
 	public void setApartamentos(List<Apartamento> apartamentos) {
 		this.apartamentos = apartamentos;
-	}
+	}*/
 
 	public List<Porteiro> getPorteiros() {
 		return porteiros;
@@ -63,5 +63,5 @@ public class Condominio implements EntidadeBase{
 	public void setPorteiros(List<Porteiro> porteiros) {
 		this.porteiros = porteiros;
 	}
-	*/
+	
 }

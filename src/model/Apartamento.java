@@ -33,22 +33,20 @@ public class Apartamento implements EntidadeBase{
 	@Column
 	private String bloco;
 	
-	/*@Column
-	private boolean ocupado;
+	@Column
+	private String ocupado;
+	
+	/*@ManyToOne()
+	@JoinColumn(name="id_condominio", referencedColumnName="id", nullable=false)
+	private Condominio condominio;*/
 	
 	@ManyToOne()
-	@JoinColumn(name="id_condominio", referencedColumnName="id", nullable=false)
-	private Condominio condominio;
-	
-	@Column
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "apartamento")
-	@JoinColumn(name="id_morador")
+	@JoinColumn(name="id_morador", referencedColumnName="id", nullable=true)
 	private Morador morador;
 
-	@Column
-	@OneToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name="id_proprietario_apartamento")
-	private Proprietario proprietario;*/
+	private Proprietario proprietario;
 
 	public long getId() {
 		return id;
@@ -74,20 +72,21 @@ public class Apartamento implements EntidadeBase{
 		this.bloco = bloco;
 	}
 
-	/*public boolean isOcupado() {
-		return ocupado;
-	}
 
-	public void setOcupado(boolean ocupado) {
-		this.ocupado = ocupado;
-	}
-
-	public Condominio getCondominio() {
+	/*public Condominio getCondominio() {
 		return condominio;
 	}
 
 	public void setCondominio(Condominio condominio) {
 		this.condominio = condominio;
+	}*/
+
+	public String getOcupado() {
+		return ocupado;
+	}
+
+	public void setOcupado(String ocupado) {
+		this.ocupado = ocupado;
 	}
 
 	public Morador getMorador() {
@@ -105,6 +104,4 @@ public class Apartamento implements EntidadeBase{
 	public void setProprietario(Proprietario proprietario) {
 		this.proprietario = proprietario;
 	}
-	*/
-
 }

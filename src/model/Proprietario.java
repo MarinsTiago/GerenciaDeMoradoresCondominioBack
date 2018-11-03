@@ -1,7 +1,10 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,6 +27,9 @@ public class Proprietario extends Usuario{
 	
 	@Column
 	private String celular;
+	
+	@OneToMany(mappedBy="proprietario")
+	private List<Apartamento> apartamento;
 
 	public String getEmail() {
 		return email;

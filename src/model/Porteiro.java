@@ -26,11 +26,10 @@ public class Porteiro extends Usuario{
 	
 	@Column
 	private String email;
-	//refazer getters and setters
 	
-	/*@ManyToOne()
+	@ManyToOne()
 	@JoinColumn(name="id_condominio", referencedColumnName="id", nullable=false)
-	private Condominio condominio;*/
+	private Condominio condominio;
 
 	public String getNome() {
 		return nome;
@@ -71,4 +70,12 @@ public class Porteiro extends Usuario{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Condominio getCondominio() {
+		return condominio;
+	}
+
+	public void setCondominio(Condominio condominio) {
+		this.condominio = condominio;
+	}	
 }
