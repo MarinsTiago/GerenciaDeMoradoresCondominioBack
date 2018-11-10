@@ -22,8 +22,8 @@ public class MoradorControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Morador> listarMorador(){
-		List<Morador> moradores = moradorDao.listaAll(Morador.class);
+	public List<Morador> listarMorador(@QueryParam("pagina") int pagina, @QueryParam("limitePorPagina") int limitePorPagina){
+		List<Morador> moradores = moradorDao.listPaginado(pagina, limitePorPagina);
 		return moradores;
 	}
 	
