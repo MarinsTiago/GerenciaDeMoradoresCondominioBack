@@ -22,8 +22,8 @@ public class ApartamentoControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Apartamento> listarApartamentos(){
-		List<Apartamento> apartamentos = apartamentoDao.listaAll(Apartamento.class);
+	public List<Apartamento> listarApartamentos(@QueryParam("pagina")int pagina, @QueryParam("limitePorPagina") int limitePorPagina){
+		List<Apartamento> apartamentos = apartamentoDao.listPaginado(pagina, limitePorPagina);
 		return apartamentos;
 	}
 	
