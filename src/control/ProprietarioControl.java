@@ -22,8 +22,8 @@ public class ProprietarioControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Proprietario> listarProprietario(){
-		List<Proprietario> proprietarios = dao.listaAll(Proprietario.class);
+	public List<Proprietario> listarProprietario(@QueryParam("pagina") int pagina, @QueryParam("limitePorPagina") int limitePorPagina){
+		List<Proprietario> proprietarios = dao.listPaginado(pagina, limitePorPagina);
 		return proprietarios;
 	}
 	
