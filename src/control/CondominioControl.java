@@ -22,8 +22,8 @@ public class CondominioControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Condominio> listarCondominio(){
-		List<Condominio> condominios = condominioDao.listaAll(Condominio.class);
+	public List<Condominio> listarCondominio(@QueryParam("pagina") int pagina, @QueryParam("limitePorPagina") int limitePorPagina){
+		List<Condominio> condominios = condominioDao.listPaginado(pagina, limitePorPagina);
 		return condominios;
 	}
 	

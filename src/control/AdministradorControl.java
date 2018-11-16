@@ -22,8 +22,8 @@ public class AdministradorControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Administrador> listarAdministradores(){
-		List<Administrador> administradores = administradorDao.listaAll(Administrador.class);
+	public List<Administrador> listarAdministradores(@QueryParam ("pagina") int pagina, @QueryParam("limitePorPagina") int limitePorPagina){
+		List<Administrador> administradores = administradorDao.listPaginado(pagina, limitePorPagina);
 		return administradores;
 	}
 	
