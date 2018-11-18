@@ -19,6 +19,7 @@ public class CondominioControl {
 
 	private CondominioDao condominioDao = new CondominioDao();
 	
+	
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +28,16 @@ public class CondominioControl {
 		return condominios;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@GET
+	@Path("listarSemPage")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Condominio> listarCondominioSemPage(){
+		List<Condominio> condominios = condominioDao.listaAll(Condominio.class);
+		return condominios;
+	}
+	
+	@SuppressWarnings("unchecked")
 	@POST
 	@Path("inserir")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,6 +45,7 @@ public class CondominioControl {
 		condominioDao.save(condominio);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@PUT
 	@Path("editar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -41,6 +53,7 @@ public class CondominioControl {
 		condominioDao.update(condominio);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@GET
 	@Path("buscarId")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -48,6 +61,7 @@ public class CondominioControl {
 		return (Condominio) condominioDao.findById(Condominio.class, id);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@DELETE
 	@Path("excluir")
 	@Produces(MediaType.APPLICATION_JSON)

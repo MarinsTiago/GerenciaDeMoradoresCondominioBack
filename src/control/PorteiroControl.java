@@ -12,6 +12,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import DAO.PorteiroDao;
+import model.Morador;
 import model.Porteiro;
 
 @Path("porteiro")
@@ -19,6 +20,7 @@ public class PorteiroControl {
 
 	private PorteiroDao porteiroDao = new PorteiroDao();
 	
+	@SuppressWarnings("unchecked")
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +29,7 @@ public class PorteiroControl {
 		return porteiros;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@POST
 	@Path("inserir")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,6 +37,7 @@ public class PorteiroControl {
 		porteiroDao.save(porteiro);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@PUT
 	@Path("editar")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -41,6 +45,7 @@ public class PorteiroControl {
 		porteiroDao.update(porteiro);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@GET
 	@Path("buscarId")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -48,10 +53,18 @@ public class PorteiroControl {
 		return (Porteiro) porteiroDao.findById(Porteiro.class, id);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@DELETE
 	@Path("excluir")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void deletar(@QueryParam("id") long id){
 		porteiroDao.delete(Porteiro.class, id);
+	}
+	
+	@POST
+	@Path("filter")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Morador findMoradorByFilter(@QueryParam("nome") String nome) {
+		return (Morador) porteiroDao.findByNome(nome);
 	}
 }
