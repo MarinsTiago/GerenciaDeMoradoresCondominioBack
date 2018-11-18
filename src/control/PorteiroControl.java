@@ -24,8 +24,8 @@ public class PorteiroControl {
 	@GET
 	@Path("listar")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Porteiro> listarPorteiro(){
-		List<Porteiro> porteiros = porteiroDao.listaAll(Porteiro.class);
+	public List<Porteiro> listarPorteiro(@QueryParam("pagina") int pagina, @QueryParam("limitePorPagina") int limitePorPagina){
+		List<Porteiro> porteiros = porteiroDao.listPaginado(pagina, limitePorPagina);
 		return porteiros;
 	}
 	
