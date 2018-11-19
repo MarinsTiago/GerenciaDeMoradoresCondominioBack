@@ -4,13 +4,15 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import model.Morador;
 import model.Porteiro;
 import model.Usuario;
 
 @SuppressWarnings("rawtypes")
 public class PorteiroDao extends DAO{
 
-	@SuppressWarnings("unckecked")
+	
+	@SuppressWarnings("unchecked")
 	public List<Porteiro> listPaginado(int pagina, int limitePorPagina){
 		manager.clear();
 		Query query = manager.createQuery("Select p from Porteiro p");
@@ -19,25 +21,27 @@ public class PorteiroDao extends DAO{
 		return query.getResultList();
 	}
 	
-	public Usuario findByNome(String nome) {
+	public Morador findByNome(String nome) {
 		Object retorno = null;
 		try {
 			manager.clear();
-			Query query = manager.createQuery("Select u from Usuario u WHERE ("
-					+ "lower(u.nome) like '%'||lower( coalesce(:nome, '') )||'%' OR "
+			
+			/*
+			 * "Select m from Morador m WHERE ("
+					+ "lower(m.nome) like '%'||lower( coalesce(:nome, '') )||'%' OR "
 					+ " coalesce(:nome, '') = ''"
-					+ ") ");
+					+ ") "
+			 * */
+			Query query = manager.createQuery("Select m from Morador m where m.nome = lower(:nome)");
 			query.setParameter("nome", nome);
 			query.setMaxResults(1);
 			retorno = query.getSingleResult();
 			if(retorno != null) {
-				return (Usuario) retorno;
+				return (Morador) retorno;
 			}else{
 				System.out.println("Errou!");
 					return null;
-			}
-			
-		
+			}	
 		}catch (Exception e) {
 			e.printStackTrace();
 			return null;
